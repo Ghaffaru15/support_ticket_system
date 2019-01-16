@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ComposerSettings" executionDataType="PHAR" phpInterpreterId="c46189d6-67b1-406d-b6d3-1cd9196af045">
+    <pharPath>C:\wamp64\www\composer.phar</pharPath>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
+    <property name="settings.editor.splitter.proportion" value="0.2975815" />
+  </component>
+</project>
