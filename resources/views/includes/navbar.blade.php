@@ -11,10 +11,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"> 
-                            <a class="nav-link" href="">About</a>
+                            <a class="nav-link" href="../about">About</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="">Contact Us</a>
+                            <a class="nav-link" href="../ticket/create">Submit Ticket</a>
                         </li>
                     </ul>
 

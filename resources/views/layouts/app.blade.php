@@ -18,6 +18,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .center{
+            width: 70%;
+            margin-right: 15%;
+            margin-left: 15%;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
