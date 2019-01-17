@@ -11,10 +11,34 @@
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
+
                         </div>
                     @endif
+                    @if (count($tickets) > 0)
+                        <h2>Your Tickets</h2>
+                        <table class="table table-striped">
+                            <tr>
+                                <th>No.</th>
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                            <?php $number = 1; ?>
+                            @foreach ($tickets as $ticket)
 
-                    You are logged in!
+                                <tr>
+                                    <td>{{$number}}</td>
+                                    <td>{{$ticket->title}}</td>
+                                    <td>{{$ticket->status ? 'Pending' : 'Answered'}}
+                                    <td><a href="../ticket/{{$ticket->id}}">view</a></td>
+                                </tr>
+                               <?php $number++; ?>
+                            @endforeach
+                        </table>
+                    @else
+                        <h3>You have not sent tickets</h3>
+                    @endif
+                   
                 </div>
             </div>
         </div>

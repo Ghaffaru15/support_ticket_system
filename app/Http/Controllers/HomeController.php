@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Ticket;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-    }
+        $user_id = auth()->user()->id;
+
+        $tickets = Ticket::where('user_id',$user_id)->get();
+       // $user = User::find($user_id);
+
+        //return view('home')->with('tickets',$user->tickets());
+        return view('home')->with('tickets',$tickets)
+;    }
 }

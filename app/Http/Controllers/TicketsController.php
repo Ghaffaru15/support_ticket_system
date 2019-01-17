@@ -4,8 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Ticket;
 class TicketsController extends Controller
 {
+
+    public function __construct(){
+
+        $this->middleware('auth');
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -41,8 +49,15 @@ class TicketsController extends Controller
             'content' => 'required'
         ]);
         
-        
-        
+        $slug = uniqid();
+        $ticket = new Ticket;
+        $ticket->title = $request->input('title');
+        $ticket->content = $request->input('content');
+        $ticket->slug = $slug;
+        $ticket->user_id = auth()->user()->id;
+        $ticket->save();
+
+        return redirect('/home')->with('status','Your ticket has been created, its uniq id is: ' . $slug);
     }
 
     /**
