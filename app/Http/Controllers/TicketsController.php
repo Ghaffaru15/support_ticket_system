@@ -69,6 +69,14 @@ class TicketsController extends Controller
     public function show($id)
     {
         //
+        $ticket = Ticket::findOrFail($id);
+        $user_id = auth()->user()->id;
+       
+        if ($ticket->user_id != $user_id){
+            return redirect('/home')->with('id','Unauthorized Page');
+        }
+        return view('/tickets/show')->with('ticket',$ticket);
+
     }
 
     /**
@@ -80,6 +88,14 @@ class TicketsController extends Controller
     public function edit($id)
     {
         //
+        $ticket = Ticket::findOrFail($id);
+        $user_id = auth()->user()->id;
+
+        if ($user_id != $ticket->user_id){
+            return redirect('/home')->with('id','Unauthorized Page');
+        }
+
+        return view('/tickets/edit')->with('ticket',$ticket);
     }
 
     /**
@@ -92,6 +108,21 @@ class TicketsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $ticket = Ticket::findOrFail($id);
+
+        $user_id = auth()->user()->id;
+
+        $ticket->title = $request->input('title');
+        $ticket->content = $request->input('content');
+        $ticket->user_id = $user_id;
+        if ($request->status != null)
+            $ticket->status = 0;
+        else
+            $ticket->status = 1;
+
+       $ticket->save();
+
+       return redirect('/home')->with('status','Ticket Updated');
     }
 
     /**
@@ -103,5 +134,10 @@ class TicketsController extends Controller
     public function destroy($id)
     {
         //
+        $ticket = Ticket::find($id);
+
+        $ticket->delete();
+
+        return redirect('/home')->with('status','Ticket Deleted');
     }
 }

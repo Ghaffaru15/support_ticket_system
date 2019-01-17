@@ -11,8 +11,16 @@
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
-
                         </div>
+                
+                    @endif
+
+                    @if (session('id'))
+                        
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('id') }}
+                        </div>
+
                     @endif
                     @if (count($tickets) > 0)
                         <h2>Your Tickets</h2>
@@ -30,7 +38,7 @@
                                     <td>{{$number}}</td>
                                     <td>{{$ticket->title}}</td>
                                     <td>{{$ticket->status ? 'Pending' : 'Answered'}}
-                                    <td><a href="../ticket/{{$ticket->id}}">view</a></td>
+                                    <td><a class="col"href="../ticket/{{$ticket->id}}">view</a></td>
                                 </tr>
                                <?php $number++; ?>
                             @endforeach

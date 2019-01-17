@@ -24,6 +24,12 @@
             margin-right: 15%;
             margin-left: 15%;
         }
+        a.col{
+            color:blue;
+        }
+        a{
+            color: white;
+        }
     </style>
 </head>
 <body>
