@@ -2,16 +2,18 @@
 
 @section('content')
    
-    <div class="container center">
-            
-        <div class="row" >
-            <div class="col-md-8 col-md-offset-2">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
               {{--  @foreach ($errors->all() as $error)
                     <p class="alert alert-danger">{{$error}}</p>
                     @endforeach 
                 --}}
-                <div class="well well bs-component" >
-                    <h2>Submit a new ticket</h2>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Submit a new ticket</h2>
+                    </div>
+                    <div class="card-body">
                     {!!Form::open(['action' => 'TicketsController@store','method' => 'POST'])!!}
 
                         <div class="form-group">

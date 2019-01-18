@@ -18,3 +18,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('ticket','TicketsController');
+
+Route::get('/admin/login','AdminsController@login');
+Route::post('/admin','AdminsController@store');
+Route::get('/admin/dashboard','AdminsController@dashboard');
