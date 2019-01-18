@@ -11,6 +11,11 @@ class Ticket extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function comment(){
+
+        return $this->hasMany('App\Comment');
+
+    }
     protected $fillable = ['title','content','slug','status','user_id'];
 
     protected $foreignkey = 'user_id';

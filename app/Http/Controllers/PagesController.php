@@ -22,5 +22,12 @@ class PagesController extends Controller
         return view('pages.about');
         
     }
+    public function show($id){
+
+        $ticket = Ticket::find($id);
+
+        return view('pages.show')->with('ticket',$ticket);
+
+    }
 }
 

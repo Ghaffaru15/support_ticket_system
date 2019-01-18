@@ -13,6 +13,8 @@
 
 Route::get('/','PagesController@index');
 Route::get('/about','PagesController@about');
+Route::get('/{id}','PagesController@show');
+//Route::post('/',)
 
 Auth::routes();
 
