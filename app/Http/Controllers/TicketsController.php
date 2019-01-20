@@ -66,6 +66,10 @@ class TicketsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //public function show(Ticket $id){ //Ticket::find($id)
+
+
+    //}
     public function show($id)
     {
         //

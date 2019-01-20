@@ -18,6 +18,6 @@ class Ticket extends Model
     }
     protected $fillable = ['title','content','slug','status','user_id'];
 
-    protected $foreignkey = 'user_id';
+   
 }
 

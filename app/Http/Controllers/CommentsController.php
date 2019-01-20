@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Comment;
+use App\Task;
 class CommentsController extends Controller
 {
     /**
@@ -35,6 +37,17 @@ class CommentsController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'comment' => 'required'
+        ]);
+        $comment = new Comment;
+        $comment->user_id = auth()->user()->id;
+        $comment->ticket_id = $request->id;
+        $comment->comment = $request->input('comment');
+
+        $comment->save();
+        
+        return back();
     }
 
     /**

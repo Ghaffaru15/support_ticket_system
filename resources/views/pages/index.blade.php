@@ -26,7 +26,7 @@
                             <tr>
                                 <td>{{$ticket->title}}
                                 <td>{{$ticket->created_at->diffForHumans() }}
-                                <td><a class="col" href="/{{$ticket->id}}">view</a>
+                                <td><a class="col" href="/pages/{{$ticket->id}}">view</a>
                             </tr>
 
                         @endforeach
